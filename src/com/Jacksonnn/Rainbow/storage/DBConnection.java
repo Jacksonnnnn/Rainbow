@@ -28,9 +28,9 @@ public class DBConnection {
 			isOpen = true;
 			Rainbow.log.info("Database connection established.");
 
-			if (!sql.tableExists("Rainbow_Rainbow")) {
-				Rainbow.log.info("Creating Rainbow_Rainbow table");
-				String query = "CREATE TABLE `Rainbow_Rainbow` (" + "`id` INTEGER NOT NULL," + "`uuid` varchar(255) NOT NULL," + "`player` varchar(255) NOT NULL," + "`block_id` varchar(255)," + "`x_coord` varchar(255)," + "`y_coord` varchar(255)," + "`z_coord` varchar(255)," + " PRIMARY KEY (id));";
+			if (!sql.tableExists("rainbow_rainbow")) {
+				Rainbow.log.info("Creating rainbow_rainbow table");
+				String query = "CREATE TABLE `rainbow_rainbow` (" + "`id` INTEGER NOT NULL," + "`player` varchar(255)," +  "`color` varchar(255)," + "`x` varchar(255)," + "`y` varchar(255)," + "`z` varchar(255)," + " PRIMARY KEY (id));";
 				sql.modifyQuery(query, false);
 			}
 		} else {
@@ -44,9 +44,9 @@ public class DBConnection {
 			isOpen = true;
 			Rainbow.log.info("Database connection established.");
 
-			if (!sql.tableExists("Rainbow_Rainbow")) {
-				Rainbow.log.info("Creating Rainbow_Rainbow table");
-				String query = "CREATE TABLE `Rainbow_Rainbow` (" + "`id` INTEGER NOT NULL," + "`uuid` varchar(255) NOT NULL," + "`player` varchar(255) NOT NULL," + "`block_id` varchar(255)," + "`x_coord` varchar(255)," + "`y_coord` varchar(255)," + "`z_coord` varchar(255)," + " PRIMARY KEY (id));";
+			if (!sql.tableExists("rainbow_rainbow")) {
+				Rainbow.log.info("Creating rainbow_rainbow table");
+				String query = "CREATE TABLE `rainbow_rainbow` (" + "`id` INTEGER NOT NULL," + "`player` varchar(255)," +  "`color` varchar(255)," + "`x` varchar(255)," + "`y` varchar(255)," + "`z` varchar(255)," + " PRIMARY KEY (id));";
 				sql.modifyQuery(query, false);
 			}
 		}
