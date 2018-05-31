@@ -16,7 +16,7 @@ public class ConfigManager {
 		FileConfiguration config;
 		if (type == ConfigType.DEFAULT) {
 			config = defaultConfig.get();
-			
+
 			config.addDefault("Storage.engine", "sqlite");
 
 			config.addDefault("Storage.MySQL.host", "localhost");
