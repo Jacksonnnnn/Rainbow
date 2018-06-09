@@ -1,10 +1,17 @@
 Summary:
 
-Create a plugin that spawns a pot of gold at the end of the rainbow. Whenever a player places down a block of wool within the colors of the rainbow (red, orange, yellow, green, blue, purple, magenta), the plugin logs it. Whenever they have placed down all 7 colors, gold (as items) is spawned in at the average point between all 7 blocks.
+Create a plugin that spawns a pot of gold at the end of the rainbow. Whenever a player places down a block of wool
+within the colors of the rainbow (red, orange, yellow, green, blue, purple, magenta), the plugin logs it. Whenever
+they have placed down all 7 colors, gold (as items) is spawned in at the average point between all 7 blocks.
+
+
 Technical specifications:
 - Only store the last block of each color placed down. Just for simplicity.
-- Multiple players should be able to do this at the same time without this screwing up. The blocks logged should be per player.
-- The average should be a legit average, too. So if I place 6 blocks together in one spot, then the other 1 a long way away, it should spawn close to the 6 blocks I placed but still on the way to the other 1 block.
+- Multiple players should be able to do this at the same time without this screwing up.
+   The blocks logged should be per player.
+- The average should be a legit average, too. So if I place 6 blocks together in one spot,
+   then the other 1 a long way away, it should spawn close to the 6 blocks I placed but still
+   on the way to the other 1 block.
 - The data should be cleared cleanly after every spawn
 - After the gold spawns, the player should be notified with a chat message
 

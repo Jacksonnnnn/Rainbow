@@ -16,6 +16,7 @@ public class BlockPlaceListener implements Listener {
 
     FileConfiguration config = defaultConfig.get();
 
+
     public void onBlockPlace(BlockPlaceEvent event) {
         Block block = event.getBlockPlaced();
         Player player = event.getPlayer();
@@ -23,16 +24,24 @@ public class BlockPlaceListener implements Listener {
 
         Material blockPlaced = block.getType();
 
+        int blockX = block.getX();
+        int blockY = block.getY();
+        int blockZ = block.getZ();
+
         if (blockPlaced == Material.WOOL) {
             final Wool wool=(Wool)block.getState().getData();
 
             DyeColor color = wool.getColor();
 
-            if (color == DyeColor.RED) {
+            boolean conRed = config.contains("Blocks." + playerName + "." + DyeColor.RED);
+            boolean conOrange = config.contains("Blocks." + playerName + "." + DyeColor.ORANGE);
+            boolean conYellow = config.contains("Blocks." + playerName + "." + DyeColor.YELLOW);
+            boolean conGreen = config.contains("Blocks." + playerName + "." + DyeColor.GREEN);
+            boolean conBlue = config.contains("Blocks." + playerName + "." + DyeColor.BLUE);
+            boolean conPurple = config.contains("Blocks." + playerName + "." + DyeColor.PURPLE);
+            boolean conMagenta = config.contains("Blocks." + playerName + "." + DyeColor.MAGENTA);
 
-                int blockX = block.getX();
-                int blockY = block.getY();
-                int blockZ = block.getZ();
+            if (color == DyeColor.RED) {
 
                 //DBConnection.sql.modifyQuery("INSERT INTO rainbow_rainbow(player, color, x, y, z) VALUES('" + playerName + "', '" + color + "', '" + blockX + "', '" + blockY + "', '" + blockZ + "');");
 
@@ -40,11 +49,64 @@ public class BlockPlaceListener implements Listener {
                 config.addDefault("Blocks." + playerName + "." + color + ".Y-Coordinate", blockY);
                 config.addDefault("Blocks." + playerName + "." + color + ".Z-Coordinate", blockZ);
 
-            } else if (color == DyeColor.ORANGE) {
+                if (conRed && conOrange && conYellow && conGreen && conBlue && conPurple && conMagenta) {
+                    /*
+                        RED
+                     */
+                    int redX = config.getInt("Blocks." + playerName + "." + DyeColor.RED + ".X-Coordinate");
+                    int redY = config.getInt("Blocks." + playerName + "." + DyeColor.RED + ".Y-Coordinate");
+                    int redZ = config.getInt("Blocks." + playerName + "." + DyeColor.RED + ".Z-Coordinate");
 
-                int blockX = block.getX();
-                int blockY = block.getY();
-                int blockZ = block.getZ();
+                    /*
+                        ORANGE
+                     */
+                    int orangeX = config.getInt("Blocks." + playerName + "." + DyeColor.ORANGE + ".X-Coordinate");
+                    int orangeY = config.getInt("Blocks." + playerName + "." + DyeColor.ORANGE + ".Y-Coordinate");
+                    int orangeZ = config.getInt("Blocks." + playerName + "." + DyeColor.ORANGE + ".Z-Coordinate");
+
+                    /*
+                        YELLOW
+                     */
+                    int yellowX = config.getInt("Blocks." + playerName + "." + DyeColor.YELLOW + ".X-Coordinate");
+                    int yellowY = config.getInt("Blocks." + playerName + "." + DyeColor.YELLOW + ".Y-Coordinate");
+                    int yellowZ = config.getInt("Blocks." + playerName + "." + DyeColor.YELLOW + ".Z-Coordinate");
+
+                    /*
+                        GREEN
+                     */
+                    int greenX = config.getInt("Blocks." + playerName + "." + DyeColor.GREEN + ".X-Coordinate");
+                    int greenY = config.getInt("Blocks." + playerName + "." + DyeColor.GREEN + ".Y-Coordinate");
+                    int greenZ = config.getInt("Blocks." + playerName + "." + DyeColor.GREEN + ".Z-Coordinate");
+
+                    /*
+                        BLUE
+                     */
+                    int blueX = config.getInt("Blocks." + playerName + "." + DyeColor.BLUE + ".X-Coordinate");
+                    int blueY = config.getInt("Blocks." + playerName + "." + DyeColor.BLUE + ".Y-Coordinate");
+                    int blueZ = config.getInt("Blocks." + playerName + "." + DyeColor.BLUE + ".Z-Coordinate");
+
+                    /*
+                        PURPLE
+                     */
+                    int purpleX = config.getInt("Blocks." + playerName + "." + DyeColor.PURPLE + ".X-Coordinate");
+                    int purpleY = config.getInt("Blocks." + playerName + "." + DyeColor.PURPLE + ".Y-Coordinate");
+                    int purpleZ = config.getInt("Blocks." + playerName + "." + DyeColor.PURPLE + ".Z-Coordinate");
+
+                    /*
+                        MAGENTA
+                     */
+                    int magentaX = config.getInt("Blocks." + playerName + "." + DyeColor.MAGENTA + ".X-Coordinate");
+                    int magentaY = config.getInt("Blocks." + playerName + "." + DyeColor.MAGENTA + ".Y-Coordinate");
+                    int magentaZ = config.getInt("Blocks." + playerName + "." + DyeColor.MAGENTA + ".Z-Coordinate");
+
+                    int avgX = (redX + orangeX + yellowX + greenX + blueX + purpleX + magentaX) / 7;
+                    int avgY = (redY + orangeY + yellowY + greenY + blueY + purpleY + magentaY) / 7;
+                    int avgZ = (redZ + orangeZ + yellowZ + greenZ + blueZ + purpleZ + magentaZ) / 7;
+
+
+                }
+
+            } else if (color == DyeColor.ORANGE) {
 
                 //DBConnection.sql.modifyQuery("INSERT INTO rainbow_rainbow(player, color, x, y, z) VALUES('" + playerName + "', '" + color + "', '" + blockX + "', '" + blockY + "', '" + blockZ + "');");
 
@@ -54,10 +116,6 @@ public class BlockPlaceListener implements Listener {
 
             } else if (color == DyeColor.YELLOW) {
 
-                int blockX = block.getX();
-                int blockY = block.getY();
-                int blockZ = block.getZ();
-
                 //DBConnection.sql.modifyQuery("INSERT INTO rainbow_rainbow(player, color, x, y, z) VALUES('" + playerName + "', '" + color + "', '" + blockX + "', '" + blockY + "', '" + blockZ + "');");
 
                 config.addDefault("Blocks." + playerName + "." + color + ".X-Coordinate", blockX);
@@ -65,10 +123,6 @@ public class BlockPlaceListener implements Listener {
                 config.addDefault("Blocks." + playerName + "." + color + ".Z-Coordinate", blockZ);
 
             } else if (color == DyeColor.GREEN) {
-
-                int blockX = block.getX();
-                int blockY = block.getY();
-                int blockZ = block.getZ();
 
                 //DBConnection.sql.modifyQuery("INSERT INTO rainbow_rainbow(player, color, x, y, z) VALUES('" + playerName + "', '" + color + "', '" + blockX + "', '" + blockY + "', '" + blockZ + "');");
 
@@ -78,10 +132,6 @@ public class BlockPlaceListener implements Listener {
 
             } else if (color == DyeColor.BLUE) {
 
-                int blockX = block.getX();
-                int blockY = block.getY();
-                int blockZ = block.getZ();
-
                 //DBConnection.sql.modifyQuery("INSERT INTO rainbow_rainbow(player, color, x, y, z) VALUES('" + playerName + "', '" + color + "', '" + blockX + "', '" + blockY + "', '" + blockZ + "');");
 
                 config.addDefault("Blocks." + playerName + "." + color + ".X-Coordinate", blockX);
@@ -90,10 +140,6 @@ public class BlockPlaceListener implements Listener {
 
             } else if (color == DyeColor.PURPLE) {
 
-                int blockX = block.getX();
-                int blockY = block.getY();
-                int blockZ = block.getZ();
-
                 //DBConnection.sql.modifyQuery("INSERT INTO rainbow_rainbow(player, color, x, y, z) VALUES('" + playerName + "', '" + color + "', '" + blockX + "', '" + blockY + "', '" + blockZ + "');");
 
                 config.addDefault("Blocks." + playerName + "." + color + ".X-Coordinate", blockX);
@@ -101,10 +147,6 @@ public class BlockPlaceListener implements Listener {
                 config.addDefault("Blocks." + playerName + "." + color + ".Z-Coordinate", blockZ);
 
             } else if (color == DyeColor.MAGENTA) {
-
-                int blockX = block.getX();
-                int blockY = block.getY();
-                int blockZ = block.getZ();
 
                 //DBConnection.sql.modifyQuery("INSERT INTO rainbow_rainbow(player, color, x, y, z) VALUES('" + playerName + "', '" + color + "', '" + blockX + "', '" + blockY + "', '" + blockZ + "');");
 
