@@ -1,15 +1,10 @@
 package com.Jacksonnn.Rainbow.storage;
 
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Logger;
-
+import com.Jacksonnn.Rainbow.Rainbow;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.Jacksonnn.Rainbow.Rainbow;
+import java.sql.*;
+import java.util.logging.Logger;
 
 public abstract class Database {
 

@@ -1,11 +1,10 @@
 package com.Jacksonnn.Rainbow.configuration;
 
-import java.io.File;
-
+import com.Jacksonnn.Rainbow.Rainbow;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import com.Jacksonnn.Rainbow.Rainbow;
+import java.io.File;
 
 public class Config {
 	private File file;

@@ -1,12 +1,11 @@
 package com.Jacksonnn.Rainbow;
 
-import java.util.logging.Logger;
-
+import com.Jacksonnn.Rainbow.configuration.ConfigManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.Jacksonnn.Rainbow.configuration.ConfigManager;
+import java.util.logging.Logger;
 
 public class Rainbow extends JavaPlugin {
 	public static Rainbow plugin;

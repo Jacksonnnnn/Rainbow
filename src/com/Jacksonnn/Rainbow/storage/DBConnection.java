@@ -1,9 +1,6 @@
 package com.Jacksonnn.Rainbow.storage;
 
 import com.Jacksonnn.Rainbow.Rainbow;
-import com.Jacksonnn.Rainbow.storage.Database;
-import com.Jacksonnn.Rainbow.storage.MySQL;
-import com.Jacksonnn.Rainbow.storage.SQLite;
 
 public class DBConnection {
 

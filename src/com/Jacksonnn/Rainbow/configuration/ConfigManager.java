@@ -1,8 +1,8 @@
 package com.Jacksonnn.Rainbow.configuration;
 
-import java.io.File;
-
 import org.bukkit.configuration.file.FileConfiguration;
+
+import java.io.File;
 
 public class ConfigManager {
 	public static Config defaultConfig;
