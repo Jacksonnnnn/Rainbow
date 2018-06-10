@@ -1,6 +1,5 @@
 package com.Jacksonnn.Rainbow;
 
-import com.Jacksonnn.Rainbow.configuration.Config;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
