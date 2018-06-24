@@ -18,7 +18,7 @@ public class Rainbow extends JavaPlugin {
 		Rainbow.log = this.getLogger();
 		new ConfigManager();
 
-		registerListeners();
+		pm.registerEvents(new BlockPlaceListener(), this);
 
 		Bukkit.getServer().getLogger().info("Rainbow has been enabled!");
 	}
@@ -30,9 +30,5 @@ public class Rainbow extends JavaPlugin {
 	
 	public static void stopPlugin() {
 		plugin.getServer().getPluginManager().disablePlugin(plugin);
-	}
-
-	private void registerListeners() {
-		pm.registerEvents(new BlockPlaceListener(), this);
 	}
 }

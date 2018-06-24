@@ -1,14 +1,13 @@
 package com.Jacksonnn.Rainbow;
 
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.DyeColor;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.Chest;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
@@ -18,9 +17,9 @@ import static com.Jacksonnn.Rainbow.configuration.ConfigManager.defaultConfig;
 
 public class BlockPlaceListener implements Listener {
 
-    FileConfiguration config = defaultConfig.get();
+    private FileConfiguration config = defaultConfig.get();
 
-
+    @EventHandler
     public void onBlockPlace(BlockPlaceEvent event) {
         Block block = event.getBlockPlaced();
         Player player = event.getPlayer();
@@ -39,22 +38,15 @@ public class BlockPlaceListener implements Listener {
 
             DyeColor color = wool.getColor();
 
-            boolean conRed = config.contains("Blocks." + playerName + "." + DyeColor.RED);
-            boolean conOrange = config.contains("Blocks." + playerName + "." + DyeColor.ORANGE);
-            boolean conYellow = config.contains("Blocks." + playerName + "." + DyeColor.YELLOW);
-            boolean conGreen = config.contains("Blocks." + playerName + "." + DyeColor.GREEN);
-            boolean conBlue = config.contains("Blocks." + playerName + "." + DyeColor.BLUE);
-            boolean conPurple = config.contains("Blocks." + playerName + "." + DyeColor.PURPLE);
-            boolean conMagenta = config.contains("Blocks." + playerName + "." + DyeColor.MAGENTA);
 
             if (color == DyeColor.RED) {
-
                 //DBConnection.sql.modifyQuery("INSERT INTO rainbow_rainbow(player, color, x, y, z) VALUES('" + playerName + "', '" + color + "', '" + blockX + "', '" + blockY + "', '" + blockZ + "');");
 
                 config.addDefault("Blocks." + playerName + "." + color + ".X-Coordinate", blockX);
                 config.addDefault("Blocks." + playerName + "." + color + ".Y-Coordinate", blockY);
                 config.addDefault("Blocks." + playerName + "." + color + ".Z-Coordinate", blockZ);
                 defaultConfig.save();
+                return;
 
             } else if (color == DyeColor.ORANGE) {
 
@@ -112,7 +104,16 @@ public class BlockPlaceListener implements Listener {
 
             }
 
+            boolean conRed = config.contains("Blocks." + playerName + "." + DyeColor.RED);
+            boolean conOrange = config.contains("Blocks." + playerName + "." + DyeColor.ORANGE);
+            boolean conYellow = config.contains("Blocks." + playerName + "." + DyeColor.YELLOW);
+            boolean conGreen = config.contains("Blocks." + playerName + "." + DyeColor.GREEN);
+            boolean conBlue = config.contains("Blocks." + playerName + "." + DyeColor.BLUE);
+            boolean conPurple = config.contains("Blocks." + playerName + "." + DyeColor.PURPLE);
+            boolean conMagenta = config.contains("Blocks." + playerName + "." + DyeColor.MAGENTA);
+
             if (conRed && conOrange && conYellow && conGreen && conBlue && conPurple && conMagenta) {
+
                     /*
                         RED
                      */
@@ -178,36 +179,35 @@ public class BlockPlaceListener implements Listener {
 
                 player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.RED + "R" + ChatColor.GOLD + "a" + ChatColor.YELLOW + "i" + ChatColor.GREEN + "n" + ChatColor.BLUE + "b" + ChatColor.DARK_PURPLE + "o" + ChatColor.LIGHT_PURPLE + "w" + ChatColor.DARK_GRAY + "] "  + ChatColor.YELLOW + "We created a pot of gold at " + coords + ".");
 
-                config.addDefault("Blocks." + playerName + "." + DyeColor.RED + ".X-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.RED + ".Y-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.RED + ".Z-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.RED + ".X-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.RED + ".Y-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.RED + ".Z-Coordinate", "");
 
-                config.addDefault("Blocks." + playerName + "." + DyeColor.ORANGE + ".X-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.ORANGE + ".Y-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.ORANGE + ".Z-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.ORANGE + ".X-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.ORANGE + ".Y-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.ORANGE + ".Z-Coordinate", "");
 
-                config.addDefault("Blocks." + playerName + "." + DyeColor.YELLOW + ".X-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.YELLOW + ".Y-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.YELLOW + ".Z-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.YELLOW + ".X-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.YELLOW + ".Y-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.YELLOW + ".Z-Coordinate", "");
 
-                config.addDefault("Blocks." + playerName + "." + DyeColor.GREEN + ".X-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.GREEN + ".Y-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.GREEN + ".Z-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.GREEN + ".X-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.GREEN + ".Y-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.GREEN + ".Z-Coordinate", "");
 
-                config.addDefault("Blocks." + playerName + "." + DyeColor.BLUE + ".X-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.BLUE + ".Y-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.BLUE + ".Z-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.BLUE + ".X-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.BLUE + ".Y-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.BLUE + ".Z-Coordinate", "");
 
-                config.addDefault("Blocks." + playerName + "." + DyeColor.PURPLE + ".X-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.PURPLE + ".Y-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.PURPLE + ".Z-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.PURPLE + ".X-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.PURPLE + ".Y-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.PURPLE + ".Z-Coordinate", "");
 
-                config.addDefault("Blocks." + playerName + "." + DyeColor.MAGENTA + ".X-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.MAGENTA + ".Y-Coordinate", "");
-                config.addDefault("Blocks." + playerName + "." + DyeColor.MAGENTA + ".Z-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.MAGENTA + ".X-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.MAGENTA + ".Y-Coordinate", "");
+                config.set("Blocks." + playerName + "." + DyeColor.MAGENTA + ".Z-Coordinate", "");
+                defaultConfig.save();
             }
-
         }
     }
-
 }
